@@ -92,8 +92,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (wParam & MK_LBUTTON || wParam & MK_RBUTTON)
 			{
 				hdc = GetDC(hwnd);
-				/*SelectObject(hdc, GetStockObject(WHITE_PEN));
-				DrawBezier(hdc, apt);*/
+				SelectObject(hdc, GetStockObject(WHITE_PEN));
+				DrawBezier(hdc, apt);
 				if (wParam & MK_LBUTTON)
 				{
 					apt[1].x = LOWORD(lParam);
