@@ -92,8 +92,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (wParam & MK_LBUTTON || wParam & MK_RBUTTON)
 			{
 				hdc = GetDC(hwnd);
+				// 每次单击、右击和移动鼠标，都用白色画笔覆盖原黑色画笔的线条
+				// 造成抹去原贝塞尔曲线的假象
 				SelectObject(hdc, GetStockObject(WHITE_PEN));
 				DrawBezier(hdc, apt);
+
 				if (wParam & MK_LBUTTON)
 				{
 					apt[1].x = LOWORD(lParam);
